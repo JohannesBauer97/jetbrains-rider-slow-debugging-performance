@@ -8,6 +8,25 @@ public abstract class Program
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
+
+        RunParallelFibonacciTasks();
+
+        stopwatch.Stop();
+        Console.WriteLine($"Time elapsed: {stopwatch.Elapsed}");
+    }
+
+    /// <summary>
+    /// Run multiple Fibonacci tasks in parallel.
+    /// </summary>
+    private static void RunParallelFibonacciTasks()
+    {
+        int Fibonacci(int n)
+        {
+            if (n <= 1)
+                return n;
+            return Fibonacci(n - 1) + Fibonacci(n - 2);
+        }
+
         const int numberOfTasks = 10;
         var tasks = new List<Task>();
 
@@ -24,14 +43,5 @@ public abstract class Program
         }
 
         Task.WaitAll(tasks.ToArray());
-        stopwatch.Stop();
-        Console.WriteLine($"Time elapsed: {stopwatch.Elapsed}");
-    }
-
-    private static int Fibonacci(int n)
-    {
-        if (n <= 1)
-            return n;
-        return Fibonacci(n - 1) + Fibonacci(n - 2);
     }
 }
