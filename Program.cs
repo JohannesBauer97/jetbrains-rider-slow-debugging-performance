@@ -4,14 +4,14 @@ namespace Rider.Mac.Debug.Perf.Example;
 
 public abstract class Program
 {
-    private static void Main()
+    private static async Task Main()
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
-        RunParallelFibonacciTasks();
+        await RunParallelFibonacciTasks();
         Console.WriteLine($"RunParallelFibonacciTasks time elapsed: {stopwatch.Elapsed}");
         stopwatch.Restart();
-        RunParallelHttpRequests();
+        await RunParallelHttpRequests();
         Console.WriteLine($"RunParallelHttpRequests time elapsed: {stopwatch.Elapsed}");
         stopwatch.Stop();
     }
@@ -19,7 +19,7 @@ public abstract class Program
     /// <summary>
     /// Run multiple Fibonacci tasks in parallel.
     /// </summary>
-    private static void RunParallelFibonacciTasks()
+    private static async Task RunParallelFibonacciTasks()
     {
         int Fibonacci(int n)
         {
@@ -37,19 +37,19 @@ public abstract class Program
             {
                 for (var n = 1; n <= 40; n++)
                 {
-                    var result = Fibonacci(n);
+                    Fibonacci(n);
                     // Console.WriteLine($"Task {Task.CurrentId}: Fibonacci({n}) = {result}");
                 }
             }));
         }
 
-        Task.WaitAll(tasks.ToArray());
+        await Task.WhenAll(tasks.ToArray());
     }
 
     /// <summary>
     /// Run multiple HTTP requests in parallel.
     /// </summary>
-    private static void RunParallelHttpRequests()
+    private static async Task RunParallelHttpRequests()
     {
         var client = new HttpClient();
         var tasks = new List<Task>();
@@ -64,6 +64,6 @@ public abstract class Program
             }));
         }
 
-        Task.WaitAll(tasks.ToArray());
+        await Task.WhenAll(tasks.ToArray());
     }
 }
