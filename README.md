@@ -10,16 +10,16 @@ This example project tries to reproduce the issue.
 
 #### Rider
 * Run:
-  * `RunParallelFibonacciTasks time elapsed: 00:00:03.3856167`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.2774819`
+  * `RunParallelFibonacciTasks time elapsed: 00:00:04.8026837`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.3663711`
 * Debug:
-  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2523595`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.5442160`
+  * `RunParallelFibonacciTasks time elapsed: 00:00:14.5348484`
+  * `RunParallelHttpRequests time elapsed: 00:00:01.0609222`
 
 #### VSCode
-* Run: 
-  * `RunParallelFibonacciTasks time elapsed: 00:00:02.2992337`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.2039228`
-* Debug: 
-  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2194985`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.3564102`
+* Run:
+  * `RunParallelFibonacciTasks time elapsed: 00:00:04.3853632`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.3147610`
+* Debug:
+  * `RunParallelFibonacciTasks time elapsed: 00:00:04.3754359`
+    `RunParallelHttpRequests time elapsed: 00:00:00.2788305`
