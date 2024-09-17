@@ -8,11 +8,12 @@ public abstract class Program
     {
         var stopwatch = new Stopwatch();
         stopwatch.Start();
-
         RunParallelFibonacciTasks();
-
+        Console.WriteLine($"RunParallelFibonacciTasks time elapsed: {stopwatch.Elapsed}");
+        stopwatch.Restart();
+        RunParallelHttpRequests();
+        Console.WriteLine($"RunParallelHttpRequests time elapsed: {stopwatch.Elapsed}");
         stopwatch.Stop();
-        Console.WriteLine($"Time elapsed: {stopwatch.Elapsed}");
     }
 
     /// <summary>
@@ -39,6 +40,27 @@ public abstract class Program
                     var result = Fibonacci(n);
                     // Console.WriteLine($"Task {Task.CurrentId}: Fibonacci({n}) = {result}");
                 }
+            }));
+        }
+
+        Task.WaitAll(tasks.ToArray());
+    }
+
+    /// <summary>
+    /// Run multiple HTTP requests in parallel.
+    /// </summary>
+    private static void RunParallelHttpRequests()
+    {
+        var client = new HttpClient();
+        var tasks = new List<Task>();
+
+        for (var i = 0; i < 10; i++)
+        {
+            tasks.Add(Task.Run(async () =>
+            {
+                var response = await client.GetAsync("https://jsonplaceholder.typicode.com/todos/1");
+                var content = await response.Content.ReadAsStringAsync();
+                // Console.WriteLine($"Task {Task.CurrentId}: {content}");
             }));
         }
 
