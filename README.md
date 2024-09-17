@@ -9,17 +9,17 @@ This example project tries to reproduce the issue.
 ## Example project observations
 
 #### Rider
-* Debug:
-  * `RunParallelFibonacciTasks time elapsed: 00:00:03.5374621`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.1801813`
 * Run:
-  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2185010`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.5150336`
+  * `RunParallelFibonacciTasks time elapsed: 00:00:03.3856167`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.2774819`
+* Debug:
+  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2523595`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.5442160`
 
 #### VSCode
-* Debug: 
-  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2544012`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.2719139`
 * Run: 
-  * `RunParallelFibonacciTasks time elapsed: 00:00:02.2207867`
-  * `RunParallelHttpRequests time elapsed: 00:00:00.1975888`
+  * `RunParallelFibonacciTasks time elapsed: 00:00:02.2992337`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.2039228`
+* Debug: 
+  * `RunParallelFibonacciTasks time elapsed: 00:00:10.2194985`
+  * `RunParallelHttpRequests time elapsed: 00:00:00.3564102`
